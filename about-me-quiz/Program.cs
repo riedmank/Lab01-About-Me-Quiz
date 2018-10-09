@@ -7,6 +7,7 @@ namespace about_me_quiz
         static void Main(string[] args)
         {
             int correctAnswers = 0;
+
             Console.WriteLine("Welcome to the Kris Riedman Quiz");
             Console.WriteLine("Question 1: How old am I?");
             if (AgeChecker(int.Parse(Console.ReadLine())) == 0)
@@ -16,6 +17,7 @@ namespace about_me_quiz
             }
             else
                 Console.WriteLine("Wrong!");
+
             Console.WriteLine("Question 2: Where was I born?");
             string answer = LocationChecker(Console.ReadLine().ToLower());
             if (answer == "Correct!")
@@ -25,6 +27,7 @@ namespace about_me_quiz
             }
             else
                 Console.WriteLine("Wrong!");
+
             Console.WriteLine("Question 3: What instrument did I play in high school?");
             if (InstrumentChecker(Console.ReadLine().ToLower()))
             {
@@ -33,9 +36,24 @@ namespace about_me_quiz
             }
             else
                 Console.WriteLine("Wrong!");
-            Console.WriteLine("Question 4: Do I have a cat named Max?");
 
-            Console.WriteLine("Question 5: ?");
+            Console.WriteLine("Question 4: Do I have a cat named Max?(y/n)");
+            if (CatChecker(Console.ReadLine()))
+            {
+                Console.WriteLine("Correct!");
+                correctAnswers++;
+            }
+            else
+                Console.WriteLine("Wrong!");
+
+            Console.WriteLine("Question 5: Was I in the Air Force?(y/n)");
+            if (JobChecker(Console.ReadLine()))
+            {
+                Console.WriteLine("Correct!");
+                correctAnswers++;
+            }
+            else
+                Console.WriteLine("Wrong!");
 
             Console.WriteLine($"You got {correctAnswers} correct answers!!");
         }
@@ -78,9 +96,13 @@ namespace about_me_quiz
                 return false;
         }
 
-        static bool checker()
+        static bool JobChecker(string guess)
         {
-
+            string answer = "y";
+            if (guess == answer)
+                return true;
+            else
+                return false;
         }
     }
 }
