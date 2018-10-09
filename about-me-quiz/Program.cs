@@ -17,10 +17,23 @@ namespace about_me_quiz
             else
                 Console.WriteLine("Wrong!");
             Console.WriteLine("Question 2: Where was I born?");
-            Console.WriteLine(LocationChecker(Console.ReadLine()));
+            string answer = LocationChecker(Console.ReadLine().ToLower());
+            if (answer == "Correct!")
+            {
+                Console.WriteLine("Correct!");
+                correctAnswers++;
+            }
+            else
+                Console.WriteLine("Wrong!");
             Console.WriteLine("Question 3: What instrument did I play in high school?");
-
-            Console.WriteLine("Question 4: ?");
+            if (InstrumentChecker(Console.ReadLine().ToLower()))
+            {
+                Console.WriteLine("Correct!");
+                correctAnswers++;
+            }
+            else
+                Console.WriteLine("Wrong!");
+            Console.WriteLine("Question 4: Do I have a cat named Max?");
 
             Console.WriteLine("Question 5: ?");
 
@@ -54,6 +67,20 @@ namespace about_me_quiz
                 return true;
             else
                 return false;
+        }
+
+        static bool CatChecker(string guess)
+        {
+            string answer = "y";
+            if (guess == answer)
+                return true;
+            else
+                return false;
+        }
+
+        static bool checker()
+        {
+
         }
     }
 }
