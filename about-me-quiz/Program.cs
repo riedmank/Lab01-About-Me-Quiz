@@ -70,12 +70,7 @@ namespace about_me_quiz
         static int AgeChecker(int guess)
         {
             int age = 29;
-            if (age > guess)
-                return age - guess;
-            else if (age < guess)
-                return guess - age;
-            else
-                return 0;
+            return age - guess;
         }
 
         static string LocationChecker(string guess)
